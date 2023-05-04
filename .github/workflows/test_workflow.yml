@@ -19,4 +19,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: PrintInfo
-      run:  > echo "$GITHUB_REPOSITORY"
+      run: echo "$GITHUB_REPOSITORY"
