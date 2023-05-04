@@ -23,3 +23,4 @@ jobs:
           echo "This is info of github          ${{ github.ref }}       end echo"
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           echo "$VERSION"
+          echo $GITHUB_REPOSITORY
