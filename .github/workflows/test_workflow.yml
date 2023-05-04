@@ -19,4 +19,5 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: PrintInfo
-      run: echo "This is info of github\n${{ github.ref }} \n end echo"
+      run: echo "This is info of github          ${{ github.ref }}       end echo"
+      run: VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,') | echo "$VERSION"
