@@ -24,3 +24,4 @@ jobs:
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           echo "$VERSION"
           echo $GITHUB_REPOSITORY
+          ./run_github_ci.sh
