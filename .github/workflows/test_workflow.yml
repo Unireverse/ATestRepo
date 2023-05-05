@@ -11,12 +11,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  test:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ inputs.name }}"
+    - name: PrintInfo
+      run: echo  "$GITHUB_REPOSITORY" && echo "$GITHUB_SHA" && echo "$GITHUB_REF" && echo "$GITHUB_HEAD_REF" && pwd && ls
