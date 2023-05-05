@@ -17,6 +17,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: PrintInfo
-      run: echo  "$GITHUB_REPOSITORY" && echo ${{github.actor}} && echo ${{github.workspace}} && ls -a && echo "$GITHUB_HEAD_REF" && pwd && ls && cd /home/ubuntu/actions-runner && find . -name "build\.sh"
+      - uses: actions/checkout@v3
+      # Runs a single command using the runners shell
+      - name: PrintInfo
+        run: echo  "$GITHUB_REPOSITORY" && echo ${{github.actor}} && echo ${{github.workspace}} && ls -a && echo "$GITHUB_HEAD_REF" && pwd && ls && cd /home/ubuntu/actions-runner && find . -name "build\.sh"
