@@ -23,7 +23,7 @@ jobs:
         run: echo "Start Zip files"
         
       - name: ZipFile
-        run: zip -r /github_ci/file.zip *
+        run: tar -czvf /github_ci/file.tar.gz *
         
       - name: PrintInfo
         run: echo "End zip files"
