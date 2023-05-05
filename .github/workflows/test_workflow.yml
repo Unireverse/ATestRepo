@@ -19,4 +19,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: PrintInfo
-      run: echo  "$GITHUB_REPOSITORY" && echo "$GITHUB_SHA" && echo "$GITHUB_REF" && echo "$GITHUB_HEAD_REF" && pwd && ls && cd /home/ubuntu/actions-runner && find . -name "build\.sh"
+      run: echo  "$GITHUB_REPOSITORY" && echo "$github.actor" && echo "$GITHUB_REF" && echo "$GITHUB_HEAD_REF" && pwd && ls && cd /home/ubuntu/actions-runner && find . -name "build\.sh"
