@@ -15,6 +15,6 @@ if [ ! -d  "/github_ci/REPO_TIME_ID_SUB_LOGS" ];then
 	mkdir /github_ci/REPO_TIME_ID_SUB_LOGS
 fi
 python3 file_guard.py /github_ci/REPO_TIME_ID_RESULT /github_ci/REPO_TIME_ID_LOG &
-python3 combine_log.py /github_ci/REPO_TIME_ID_LOG /github_ci/REPO_TIME_ID_LOG_LIST /github_ci/REPO_TIME_ID_SUB_LOGS/ /github_ci/REPO_TIME_ID_RESULT &
+# python3 combine_log.py /github_ci/REPO_TIME_ID_LOG /github_ci/REPO_TIME_ID_LOG_LIST /github_ci/REPO_TIME_ID_SUB_LOGS/ /github_ci/REPO_TIME_ID_RESULT &
 wait
 
