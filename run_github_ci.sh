@@ -44,6 +44,7 @@ if [ ! -d $sub_logs_path ];then
 fi
 
 echo "working" > "$request_root/status"
+chmod o+w "$request_root/status"
 
 if [ ! -f  "$request_root/log" ];then
 	touch "$request_root/log"
@@ -53,7 +54,11 @@ if [ ! -f "$request_root/log_list" ];then
     touch "$request_root/log_list"
 fi
 
+chgrp -R ftpuser $request_root
+chgrp -R ftpuser $requests_path
+
 python3 file_guard.py "$request_root/status" "$request_root/log" &
 python3 combine_log.py "$request_root/log" "$request_root/log_list" "$request_root/sub_logs" "$request_root/status" &
+
 wait
 
