@@ -8,9 +8,11 @@ echo "pr_id is $pr_id"
 # generate time stamp
 current=`date "+%Y-%m-%d %H:%M:%S"`
 timeStamp=`date -d "$current" +%s` 
-# currentTimeStamp=$((timeStamp*1000+10#`date "+%N"`/1000000))
-currentTimeStamp="0000000000001"
+currentTimeStamp=$((timeStamp*1000+10#`date "+%N"`/1000000))
+# currentTimeStamp="0000000000001"
 echo $currentTimeStamp
+
+card_type="MLU370X8"
 
 # default repo name
 repo_name="mluops"
@@ -27,14 +29,19 @@ if [ ! -d $requests_path ];then
 fi
 
 # gen name of this ci
-request_name="${repo_name}_${pr_id}_${currentTimeStamp}"
+request_name="${repo_name}_${pr_id}_${currentTimeStamp}_${card_type}"
 
 # gen request file.
 echo "${repo_name},${pr_id},${currentTimeStamp}" > "$requests_path/${request_name}"
 
 # gen file and dir for this request
 request_root="$repo_root/$request_name/"
-sub_logs_path="$request_root/sub_logs"
+sub_logs_path="$request_root/sub_logs/"
+
+
+echo "${repo_root}"
+echo "${requests_path}"
+echo "${request_root}"
 
 if [ ! -d $request_root ];then
     mkdir $request_root
