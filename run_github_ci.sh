@@ -65,9 +65,13 @@ if [ ! -f  "$request_root/log" ];then
 	touch "$request_root/log"
 fi
 
+chmod o+w "$request_root/log"
+
 if [ ! -f "$request_root/log_list" ];then
     touch "$request_root/log_list"
 fi
+
+chmod o+w "$request_root/log_list"
 
 # change dir group for server and client, or when server/client try to delete request, ftp may raise error.
 chgrp -R ftpuser $request_root

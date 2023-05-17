@@ -15,8 +15,6 @@ status_path = sys.argv[4]
 if __name__ == '__main__':
     # list_pos stores the last position that pointer of list file pointed to.
     list_pos = 0
-    # log_pos stores the last position that pointer of log file pointed to.
-    log_pos = 0
     while True:
         list_file = open(list_path, 'r')
         list_file.seek(list_pos)
@@ -25,24 +23,22 @@ if __name__ == '__main__':
         # update list_pos
         list_pos = list_file.tell()
         # if read any line
+        print('[COMBINATION] get line.')
         if items is not None:
             items.sort()
-            # open correspondding file and read, then write to log file.
-            log_file = open(output_path, 'a+')
-            log_file.seek(log_pos)
-            print(items)
-            os.system("ls " + list_dir_path)
+            print('items: ' + str(items))
+            # print('items: ' + str(items))
+            # print(os.listdir(list_dir_path))
             for item in items:
+                print(item)
                 sub_path = item.strip()
-                print(sub_path)
+                # print('inner: sub_path: ' + sub_path)
                 if sub_path is not "":
-                    sub_file = open(list_dir_path + '/' + sub_path)
-                    lines = sub_file.readlines()
-                    for line in lines:
-                        log_file.write(line)
-                    sub_file.close()
-            log_pos = log_file.tell()
-            log_file.close()
+                    file_name = list_dir_path + '/' + sub_path
+                    # while True:
+                    if os.path.exists(file_name):
+                        os.system('cat ' + file_name + ' >> ' + output_path)
+                        # break
         # check status_file, when read "success" or "fail" exit cycle, or else, sleep some seconds and start from beginning.
         status_file = open(status_path)
         status = status_file.readline().strip()
