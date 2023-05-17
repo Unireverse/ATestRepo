@@ -30,8 +30,11 @@ if __name__ == '__main__':
             # open correspondding file and read, then write to log file.
             log_file = open(output_path, 'a+')
             log_file.seek(log_pos)
+            print(items)
+            os.system("ls " + list_dir_path)
             for item in items:
                 sub_path = item.strip()
+                print(sub_path)
                 if sub_path is not "":
                     sub_file = open(list_dir_path + '/' + sub_path)
                     lines = sub_file.readlines()

@@ -1,8 +1,8 @@
 # /bin/bash
 
 COUNT=0
-while [ $COUNT -le 30 ]; do
+while [ $COUNT -le 100 ]; do
     ((COUNT++))
     echo "$COUNT"
-    sleep 1
+    sleep 0.1
 done
