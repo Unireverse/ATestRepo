@@ -32,7 +32,7 @@ fi
 request_name="${repo_name}_${pr_id}_${currentTimeStamp}_${card_type}"
 
 # gen request file.
-echo "${repo_name},${pr_id},${currentTimeStamp}" > "$requests_path/${request_name}"
+echo "${repo_name},${pr_id},${currentTimeStamp},${card_type}" > "$requests_path/${request_name}"
 
 # gen file and dir for this request
 request_root="$repo_root/$request_name/"
