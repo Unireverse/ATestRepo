@@ -19,12 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
-      - name: PrintInfo
-        run: echo "Start Zip files"
-        
-      - name: ZipFile
-        run: tar -czvf /github_ci/file.tar.gz *
-        
-        
-      - name: PrintInfo
-        run: echo "End zip files"
+      - name: Run Ci Script
+        run: >
+                ./run_github_ci.sh
